@@ -1,0 +1,17 @@
+# Cache headers for Netlify / Cloudflare Pages.
+# CSS/JS are versioned with ?v= in index.html, so they can cache for a year.
+# Images and video cache for 30 days. HTML always revalidates.
+/assets/*
+  Cache-Control: public, max-age=2592000
+
+/styles.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/script.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
