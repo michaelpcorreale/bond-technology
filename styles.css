@@ -143,7 +143,7 @@ p { margin: 0; }
   position: absolute; width: 560px; right: -150px; bottom: -190px; opacity: .07; pointer-events: none;
   -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 62%); mask-image: linear-gradient(180deg, #000 30%, transparent 62%);
 }
-.hero__copy { position: relative; z-index: 2; max-width: 1080px; }
+.hero__copy { position: relative; z-index: 2; max-width: 1240px; }
 .pill-label {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 7px 16px; border-radius: 999px;
@@ -152,7 +152,7 @@ p { margin: 0; }
   margin-bottom: 30px;
 }
 .pill-label span { width: 7px; height: 7px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 12px var(--violet); }
-.hero h1 { font-size: clamp(40px, 6.4vw, 76px); font-weight: 400; letter-spacing: -0.035em; line-height: 1.04; }
+.hero h1 { font-size: clamp(38px, 5.6vw, 74px); font-weight: 400; letter-spacing: -0.035em; line-height: 1.04; }
 .hero h1 em { font-style: normal; color: var(--violet-light); }
 .lede { max-width: 720px; margin: 28px auto 0; font-size: 19px; color: rgba(255,255,255,.72); }
 .hero__scroll {
