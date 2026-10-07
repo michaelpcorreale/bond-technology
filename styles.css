@@ -65,12 +65,12 @@ p { margin: 0; }
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; pointer-events: none; }
 .announce {
   pointer-events: auto;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  min-height: 44px; padding: 8px 20px;
-  background: var(--violet-btn); color: #fff; font-size: 14px; line-height: 1.4; text-align: center;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 44px; padding: 6px 16px;
+  background: var(--violet-btn); color: #fff; font-size: 15px; font-weight: 500; line-height: 1.3; text-align: center;
 }
 .announce strong { font-weight: 600; }
-.announce__icon { flex: none; width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.announce__icon { flex: none; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .nav__bar { padding: 20px 40px 0; }
 .nav__pill {
   pointer-events: auto;
@@ -496,9 +496,8 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 @media (max-width: 1024px) {
-  .nav__bar { padding: 12px 16px 0; }
-  .announce { font-size: 12.5px; min-height: 40px; padding: 7px 14px; }
-  .nav__pill { grid-template-columns: 1fr auto auto; gap: 10px; height: 62px; padding: 0 10px 0 20px; }
+  .nav__bar { padding: 20px 24px 0; }
+  .nav__pill { grid-template-columns: 1fr auto auto; gap: 10px; padding: 0 14px 0 24px; }
   .nav__cta { height: 38px; padding: 0 16px; font-size: 14px; }
   .nav__toggle {
     display: grid; gap: 6px; place-content: center; width: 40px; height: 40px;
@@ -535,6 +534,9 @@ html.lenis, html.lenis body { height: auto; }
   .hero__cta .btn { width: 100%; }
   .brand__sub { display: none; }
   .announce__icon { display: none; }
+  .announce { font-size: 13px; min-height: 40px; padding: 7px 14px; }
+  .nav__bar { padding: 12px 16px 0; }
+  .nav__pill { height: 62px; padding: 0 10px 0 20px; }
   .section { padding: 80px 0; }
   .section__intro { font-size: 17px; }
   .features, .form__row, .xgrid { grid-template-columns: 1fr; }
