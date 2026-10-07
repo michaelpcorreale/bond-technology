@@ -123,6 +123,11 @@ form.addEventListener("submit", async (e) => {
       }),
     });
     const result = await res.json().catch(() => ({}));
+    if (/activat/i.test(result.message || "")) {
+      status.textContent = "This form is waiting to be activated. Please check back shortly.";
+      status.classList.add("error");
+      return;
+    }
     if (!res.ok || String(result.success) !== "true") throw new Error(result.message || res.statusText);
     form.reset();
     status.textContent = "Thank you. We'll be in touch within one business day.";
