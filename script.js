@@ -27,6 +27,17 @@ document.addEventListener("click", (e) => {
   history.replaceState(null, "", id);
 });
 
+// Announcement bar scrolls away with the page; the nav follows it up and then sticks to the top
+const announce = document.querySelector(".announce");
+const rootStyle = document.documentElement.style;
+const updateNavOffset = () => {
+  const h = announce ? announce.offsetHeight : 0;
+  rootStyle.setProperty("--nav-offset", Math.max(0, h - window.scrollY) + "px");
+};
+updateNavOffset();
+window.addEventListener("resize", updateNavOffset);
+window.addEventListener("scroll", updateNavOffset, { passive: true });
+
 // Mobile menu
 const toggle = document.querySelector(".nav__toggle");
 const menu = document.getElementById("nav-menu");
