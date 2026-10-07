@@ -20,7 +20,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 110px; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 150px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   font-family: var(--font);
@@ -62,7 +62,16 @@ p { margin: 0; }
 .btn--block { width: 100%; }
 
 /* Nav — floating translucent bar */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 28px 40px 0; pointer-events: none; }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; pointer-events: none; }
+.announce {
+  pointer-events: auto;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 44px; padding: 8px 20px;
+  background: var(--violet-btn); color: #fff; font-size: 14px; line-height: 1.4; text-align: center;
+}
+.announce strong { font-weight: 600; }
+.announce__icon { flex: none; width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.nav__bar { padding: 20px 40px 0; }
 .nav__pill {
   pointer-events: auto;
   position: relative;
@@ -107,7 +116,7 @@ p { margin: 0; }
     radial-gradient(60% 70% at 50% 0%, rgba(182,61,252,.28), transparent 70%),
     radial-gradient(40% 50% at 85% 100%, rgba(182,61,252,.12), transparent 70%),
     var(--ink);
-  padding: 150px 0 120px;
+  padding: 200px 0 120px;
   text-align: center;
   color: #fff;
 }
@@ -487,7 +496,8 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 @media (max-width: 1024px) {
-  .nav { padding: 16px 16px 0; }
+  .nav__bar { padding: 12px 16px 0; }
+  .announce { font-size: 12.5px; min-height: 40px; padding: 7px 14px; }
   .nav__pill { grid-template-columns: 1fr auto auto; gap: 10px; height: 62px; padding: 0 10px 0 20px; }
   .nav__cta { height: 38px; padding: 0 16px; font-size: 14px; }
   .nav__toggle {
@@ -519,11 +529,12 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 600px) {
   body { font-size: 16px; }
   .wrap { padding: 0 16px; }
-  .hero__panel { padding: 120px 0 110px; }
+  .hero__panel { padding: 170px 0 110px; }
   .nav__cta { display: none; }
   .lede { font-size: 17px; }
   .hero__cta .btn { width: 100%; }
   .brand__sub { display: none; }
+  .announce__icon { display: none; }
   .section { padding: 80px 0; }
   .section__intro { font-size: 17px; }
   .features, .form__row, .xgrid { grid-template-columns: 1fr; }

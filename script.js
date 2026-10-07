@@ -8,7 +8,7 @@ const CONTACT_EMAIL = "partners@bondmsp.com";
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // Smooth scrolling
-const NAV_OFFSET = -110;
+const NAV_OFFSET = -150;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let lenis = null;
 if (window.Lenis && !reduceMotion) {
