@@ -1,9 +1,9 @@
 // Bond Technology Partners
 
-// Set this to a form backend (e.g. Formspree, Basin, or your own endpoint) to receive
-// submissions directly. While it's empty, the form opens a pre-filled email instead.
-const FORM_ENDPOINT = "";
-const CONTACT_EMAIL = "partners@bondmsp.com";
+// Contact form submissions are delivered by FormSubmit (https://formsubmit.co).
+// After the inbox owner clicks FormSubmit's activation email, swap the address
+// below for the random alias FormSubmit provides so the address isn't public.
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/michael@bookmarkpartners.com";
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -89,21 +89,7 @@ form.addEventListener("submit", async (e) => {
   }
 
   const data = Object.fromEntries(new FormData(form));
-
-  if (!FORM_ENDPOINT) {
-    const body = [
-      `Name: ${data.name}`,
-      `Firm: ${data.company}`,
-      `Email: ${data.email}`,
-      data.phone && `Phone: ${data.phone}`,
-      `Interested in: ${data.interest}`,
-      "",
-      data.message,
-    ].filter((line) => line !== undefined && line !== "").join("\n");
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Partnership inquiry: " + data.company)}&body=${encodeURIComponent(body)}`;
-    status.textContent = "Your email app should open with your note ready to send.";
-    return;
-  }
+  if (data._honey) return; // bot filled the hidden field
 
   const button = form.querySelector("button[type=submit]");
   button.disabled = true;
@@ -112,13 +98,25 @@ form.addEventListener("submit", async (e) => {
     const res = await fetch(FORM_ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        Name: data.name,
+        Firm: data.company,
+        Email: data.email,
+        Phone: data.phone || "(not provided)",
+        "Interested in": data.interest,
+        Message: data.message || "(none)",
+        _replyto: data.email,
+        _subject: `Bond inquiry: ${data.company} (${data.interest})`,
+        _template: "table",
+        _captcha: "false",
+      }),
     });
-    if (!res.ok) throw new Error(res.statusText);
+    const result = await res.json().catch(() => ({}));
+    if (!res.ok || String(result.success) !== "true") throw new Error(result.message || res.statusText);
     form.reset();
     status.textContent = "Thank you. We'll be in touch within one business day.";
   } catch {
-    status.textContent = `Something went wrong. Please email us at ${CONTACT_EMAIL}.`;
+    status.textContent = "Something went wrong sending your message. Please try again in a moment.";
     status.classList.add("error");
   } finally {
     button.disabled = false;

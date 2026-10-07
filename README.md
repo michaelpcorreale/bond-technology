@@ -21,4 +21,4 @@ Then open http://localhost:8080.
 
 ## Contact form
 
-Submissions open a pre-filled email to `partners@bondmsp.com` until `FORM_ENDPOINT` in `script.js` is set to a form service.
+Submissions are sent through [FormSubmit](https://formsubmit.co) to the inbox set in `FORM_ENDPOINT` in `script.js`. A hidden `_honey` field filters out spam bots.

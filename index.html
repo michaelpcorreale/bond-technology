@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="assets/media/hero-poster.webp" type="image/webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=19">
+  <link rel="stylesheet" href="styles.css?v=20">
 
   <script type="application/ld+json">
 [
@@ -54,12 +54,7 @@
     "logo": "https://bondmsp.com/assets/icon-512.png",
     "image": "https://bondmsp.com/assets/og-image.jpg",
     "description": "A partnership for owner-led MSPs. Get paid for what you built, keep a meaningful stake, and scale with our talent, technology and operating expertise.",
-    "areaServed": "US",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "business development",
-      "email": "partners@bondmsp.com"
-    }
+    "areaServed": "US"
   },
   {
     "@context": "https://schema.org",
@@ -549,6 +544,7 @@
         <p class="section__intro">You'll speak directly with Bond's founder, not a broker. There's no obligation and no pressure, and we'll keep it confidential.</p>
       </div>
       <form class="form" id="contact-form" novalidate>
+        <input class="form__honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form__row">
           <label>Name<input name="name" autocomplete="name" required></label>
           <label>Firm<input name="company" autocomplete="organization" required></label>
@@ -595,6 +591,6 @@
 </footer>
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="script.js?v=8" defer></script>
+<script src="script.js?v=9" defer></script>
 </body>
 </html>
